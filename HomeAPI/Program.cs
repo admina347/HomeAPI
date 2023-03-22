@@ -1,3 +1,6 @@
+using System.Reflection;
+using AutoMapper;
+using HomeAPI;
 using HomeAPI.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,10 +23,18 @@ builder.Configuration.AddJsonFile("HomeOptions.json");
 builder.Services.Configure<HomeOptions>
         (builder.Configuration.GetSection("HomeOptions"));
 
+
+// Подключаем автомаппинг
+var mapperConfig = new MapperConfiguration((v) => 
+{
+    v.AddProfile(new MappingProfile());
+}
+);
+IMapper mapper = mapperConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
+
 var app = builder.Build();
-
-
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
