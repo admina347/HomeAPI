@@ -1,3 +1,6 @@
 /.vscode/
 /HomeAPI/bin/
 /HomeAPI/obj/
+/HomeApi.Contracts/bin/
+/HomeApi.Contracts/obj/
+*.csproj

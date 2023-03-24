@@ -1,6 +1,6 @@
 using AutoMapper;
 using HomeAPI.Configuration;
-using HomeAPI.Contracts.Devices;
+using HomeApi.Contracts.Models.Devices;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
@@ -39,7 +39,7 @@ namespace HomeAPI.Controllers
         [HttpPost]
         [Route("Add")]
         public IActionResult Add(
-            [FromBody] 
+            [FromBody]
             AddDeviceRequest request
         )
         {

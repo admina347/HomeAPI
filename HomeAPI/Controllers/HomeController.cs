@@ -1,7 +1,7 @@
 using System.Text;
 using AutoMapper;
+using HomeApi.Contracts.Models;
 using HomeAPI.Configuration;
-using HomeAPI.Contracts;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 
