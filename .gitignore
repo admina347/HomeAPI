@@ -6,3 +6,4 @@
 /HomeApi.Data/bin/
 /HomeApi.Data/obj/
 *.csproj
+*.json
