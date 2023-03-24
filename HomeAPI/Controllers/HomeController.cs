@@ -1,6 +1,5 @@
-using System.Text;
 using AutoMapper;
-using HomeApi.Contracts.Models;
+using HomeApi.Contracts.Models.Home;
 using HomeAPI.Configuration;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -28,20 +27,20 @@ namespace HomeAPI.Controllers
         /// <summary>
         /// Метод для получения информации о доме
         /// </summary>
-        [HttpGet] // Для обслуживания Get-запросов
-        [Route("info")] // Настройка маршрута с помощью атрибутов
+        [HttpGet]
+        [Route("info")] 
         public IActionResult Info()
         {
-            // Получим запрос, "смапив" конфигурацию на модель запроса
+            // Получим запрос, смапив конфигурацию на модель запроса
             var infoResponse = _mapper.Map<HomeOptions, InfoResponse>(_options.Value);
             // Вернём ответ
             return StatusCode(200, infoResponse);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        /* [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
             return View("Error!");
-        }
+        } */
     }
 }

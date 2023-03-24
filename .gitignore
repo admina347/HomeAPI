@@ -3,4 +3,6 @@
 /HomeAPI/obj/
 /HomeApi.Contracts/bin/
 /HomeApi.Contracts/obj/
+/HomeApi.Data/bin/
+/HomeApi.Data/obj/
 *.csproj

@@ -1,21 +1,25 @@
-using System.Reflection;
 using AutoMapper;
+using HomeApi.Data;
+using HomeApi.Data.Repos;
 using HomeAPI;
 using HomeAPI.Configuration;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-//builder.Configuration.AddJsonFile("appsettings.json", optional: true, reloadOnChange: false);
-//builder.Configuration.AddJsonFile("appsettings.Development.json", optional: true, reloadOnChange: false);
-//Config
-//builder.Configuration.AddJsonFile("HomeOptions.json", optional: true, reloadOnChange: false);
+//БД
+builder.Services.AddDbContext<HomeApiContext>(options =>
+  options.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
+// регистрация сервиса репозитория для взаимодействия с базой данных
+builder.Services.AddScoped<IDeviceRepository, DeviceRepository>();
+builder.Services.AddScoped<IRoomRepository, RoomRepository>();
 
 //builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddDeviceValidator>());
 //Config
