@@ -25,6 +25,8 @@ namespace HomeAPI
                     opt => opt.MapFrom(r => r.RoomLocation));
             CreateMap<AddRoomRequest, Room>();
             CreateMap<Device, DeviceView>();
+            //HW
+            CreateMap<Room, RoomView>();
         }
     }
 }

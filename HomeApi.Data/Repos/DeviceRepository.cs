@@ -92,6 +92,7 @@ namespace HomeApi.Data.Repos
             await _context.SaveChangesAsync();
         }
 
+        //HW
         /// <summary>
         /// Удалить устройство
         /// </summary>
