@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using HomeApi.Data.Models;
+﻿using HomeApi.Data.Models;
 using HomeApi.Data.Queries;
 using Microsoft.EntityFrameworkCore;
 
